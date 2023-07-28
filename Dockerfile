@@ -11,7 +11,7 @@ WORKDIR /tv_cms
 EXPOSE 8000
 
 RUN apk update && apk add bash && apk add git && \
-  git clone
+  git clone https://github.com/joaofeitoza13/docker_test.git && \
   pip install "poetry==1.5.1" && \
   poetry install && \
   adduser --disabled-password --no-create-home developer && \
