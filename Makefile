@@ -2,7 +2,7 @@
 
 .PHONY: init
 init:
-	./scripts/init_db.sh
+	./scripts/init_project.sh
 
 .PHONY: install
 install:

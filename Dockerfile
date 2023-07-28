@@ -8,7 +8,7 @@ COPY ./ /home/duser/tv_cms
 
 WORKDIR /home/duser/tv_cms
 
-EXPOSE 8080
+EXPOSE 8000
 
 RUN \
   apt-get update -y && \
