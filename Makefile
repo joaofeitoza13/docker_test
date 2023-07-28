@@ -26,7 +26,7 @@ migrations:
 
 .PHONY: runserver
 runserver:
-	poetry run python -m tv_backend.manage runserver
+	poetry run python -m tv_backend.manage runserver 0.0.0.0:8000
 
 .PHONY: createsuperuser
 createsuperuser:

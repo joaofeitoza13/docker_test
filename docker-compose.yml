@@ -13,7 +13,7 @@ services:
     env_file:
       - ./dotenv_files/.env.docker
     ports:
-      - "5433:5432"
+      - "5432:5432"
 
   tv_backend:
     container_name:
@@ -22,12 +22,14 @@ services:
       context: .
       dockerfile: ./Dockerfile
     ports:
-      - "8080:8000"
+      - "8000:8000"
     volumes:
       - ./:/tv_cms/
     env_file:
       - ./dotenv_files/.env.dev
     depends_on:
       - tv_database
+    links:
+      - tv_database:tv_database
     tty:
       true

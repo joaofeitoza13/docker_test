@@ -52,3 +52,11 @@ git config --global --add safe.directory /tv_cms
 pip install -U setuptools
 
 chmod -R 777 .git/hooks
+
+
+
+git branch -M main
+
+git checkout main
+
+git clean -fd

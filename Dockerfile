@@ -4,6 +4,8 @@ LABEL mantainer="joaofeitoza.13@gmail.com"
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
+RUN apt-get update && apt-get install git make musl-dev python3-dev -y
+
 COPY ./ /home/duser/tv_cms
 
 WORKDIR /home/duser/tv_cms
@@ -11,9 +13,6 @@ WORKDIR /home/duser/tv_cms
 EXPOSE 8000
 
 RUN \
-  apt-get update -y && \
-  apt-get install git make musl-dev python3-dev -y && \
-  git clone https://github.com/joaofeitoza13/docker_test.git && \
   pip install --upgrade pip && \
   pip install "poetry==1.5.1" && \
   useradd -rm -d /home/duser -s /bin/bash -g root -G sudo -u 1001 duser && \

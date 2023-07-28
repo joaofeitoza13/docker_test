@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Iniciar o contêiner com o Docker Compose
-docker-compose up -d
+docker-compose up -d --build
 
 # Aguardar alguns segundos para o PostgreSQL iniciar
 sleep 2
@@ -21,9 +21,15 @@ docker exec -i tv_database psql -U tv_user -d tv_database < scripts/db/tables.sq
 docker exec -i tv_database psql -U tv_user -d tv_database < scripts/db/inserts.sql
 
 # Executar os comandos para inicializar o sistema
-docker exec -it tv_backend /bin/bash -c "cd /home/duser/tv_cms && git init"
-docker exec -it tv_backend /bin/bash -c "cd /home/duser/tv_cms && make update"
-docker exec -it tv_backend /bin/bash -c "cd /home/duser/tv_cms && make runserver"
+# docker exec -it tv_backend /bin/bash -c "cd /home/duser/tv_cms && git init"
+# docker exec -it tv_backend /bin/bash -c "cd /home/duser/tv_cms && git config --global user.name 'joaofeitoza.13'"
+# docker exec -it tv_backend /bin/bash -c "cd /home/duser/tv_cms && git config --global user.email 'joaofeitoza.13@gmail.com'"
+# docker exec -it tv_backend /bin/bash -c "cd /home/duser/tv_cms && git remote add origin https://github.com/joaofeitoza13/docker_test.git"
+# docker exec -it tv_backend /bin/bash -c "cd /home/duser/tv_cms && git clean -fd && git clean -fd tv_backend/"
+# docker exec -it tv_backend /bin/bash -c "cd /home/duser/tv_cms && git fetch"
+# docker exec -it tv_backend /bin/bash -c "cd /home/duser/tv_cms && git pull https://github.com/joaofeitoza13/docker_test.git main"
+# docker exec -it tv_backend /bin/bash -c "cd /home/duser/tv_cms && make update"
+# docker exec -it tv_backend /bin/bash -c "cd /home/duser/tv_cms && make runserver"
 
 
 
