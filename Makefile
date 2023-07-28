@@ -1,4 +1,9 @@
 #.PHONY explicity instructs makefile that these commands don't use files;
+
+.PHONY: init
+init:
+	./scripts/init_db.sh
+
 .PHONY: install
 install:
 	poetry install
@@ -7,34 +12,29 @@ install:
 install-pre-commit:
 	poetry run pre-commit uninstall; poetry run pre-commit install
 
-.PHONY: format
-format:
+.PHONY: lint
+lint:
 	poetry run pre-commit run --all-files
 
 .PHONY: migrate
 migrate:
-	poetry run python -m manage migrate
+	poetry run python -m tv_backend.manage migrate
 
 .PHONY: migrations
 migrations:
-	poetry run python -m manage makemigrations
+	poetry run python -m tv_backend.manage makemigrations
 
 .PHONY: runserver
 runserver:
-	poetry run python -m manage runserver
+	poetry run python -m tv_backend.manage runserver
 
 .PHONY: createsuperuser
 createsuperuser:
-	poetry run python -m manage createsuperuser
+	poetry run python -m tv_backend.manage createsuperuser
 
-.PHONY: up
-up:
+.PHONY: docker
+docker:
 	docker-compose up --build
 
-.PHONY: dev-docker
-dev-docker:
-	test -f .env || touch .env
-	docker-compose -f docker-compose.yml up --force-recreate db app
-
 .PHONY: update
-update: install migrate install-pre-commit;
+update: install migrate install-pre-commit lint;

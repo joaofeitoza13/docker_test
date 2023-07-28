@@ -10,7 +10,7 @@ VALUES
   (8, 'Fernando Gomes', '87654321980', 45, 'Masculino', 'Engenheiro Civil', '(81) 44444-5555', 'fernando.gomes@email.com', '1978-07-08 00:00:00', NOW()),
   (9, 'Mariana Rodrigues', '31415926535', 22, 'Feminino', 'Estudante', '(91) 66666-7777', 'mariana.rodrigues@email.com', '2001-02-14 00:00:00', NOW()),
   (10, 'Carlos Carvalho', '27182818284', 38, 'Masculino', 'Médico', '(99) 77777-6666', 'carlos.carvalho@email.com', '1985-06-30 00:00:00', NOW());
-    
+
 INSERT INTO addresses (address_id, customer_id, street, number, neighborhood, zip_code, city, state, country, created_at)
 VALUES
   (1, 1, 'Rua das Flores', 123, 'Centro', 12345, 'São Paulo', 'SP', 'Brasil', NOW()),
@@ -42,13 +42,13 @@ VALUES
 	(1, 'Tranquilo'),
 	(2, 'Agitado'),
 	(3, 'Insônia');
-	
+
 INSERT INTO substance_use_types (substance_use_types_id, substance_use_type)
 VALUES
 	(1, 'Álcool'),
 	(2, 'Tabaco'),
 	(3, 'Café');
-	
+
 INSERT INTO emotional_state_types (emotional_state_types_id, emotional_state_type)
 VALUES
 	(1, 'Preocupado'),
@@ -56,7 +56,7 @@ VALUES
 	(3, 'Depressivo'),
 	(4, 'Alegre'),
 	(5, 'Irritável');
-	
+
 INSERT INTO sun_exposure_types (sun_exposure_id, sun_exposure_type)
 VALUES
 	(1, 'Trabalha em local sem incidência de luz natural'),
@@ -74,9 +74,9 @@ VALUES
 	(8, 'Respiratório'),
 	(9, 'Neurológicos'),
 	(10, 'Imunológico');
-	
+
 INSERT INTO contraceptives (contraceptive_id, contraceptive_name)
-VALUES 
+VALUES
   (1, 'Pílula Anticoncepcional'),
   (2, 'DIU (Dispositivo Intrauterino)'),
   (3, 'Preservativo Masculino'),
@@ -88,16 +88,16 @@ VALUES
   (9, 'Método de Tabelinha'),
   (10, 'Diafragma'),
   (11, 'Espermicida');
-	
+
 INSERT INTO corporal_areas (corporal_area_id, corporal_area)
-VALUES 
+VALUES
   (1, 'Cabeça'), (2, 'Testa'), (3, 'Sobrancelha'), (4, 'Glabela'), (5, 'Faces Laterais'), (6, 'Nariz'),
   (7, 'Mento'), (8, 'Buço'), (9, 'Nuca'), (10, 'Barba Inteira'), (11, 'Faixa de Barba'), (12, 'Ombro'),
   (13, 'Axila'), (14, 'Braços'), (15, 'Antebraço'), (16, 'Mãos e dedos'), (17, 'Seios'), (18, 'Aréolas'),
   (19, 'Barriga'), (20, 'Linha Alba'), (21, 'Costas'), (22, 'Lombar'), (23, 'Glúteos'), (24, 'Ânus'), (25, 'Virilha'),
   (26, 'Perna Completa'), (27, 'Laterais da Coxa'), (28, 'Interior das Coxas'), (29, 'Coxas'), (30, 'Joelho'),
   (31, 'Meia Perna'), (32, 'Pés e Dedos');
-    
+
 INSERT INTO procedure_names (procedure_name_id, procedure_name)
 VALUES
 	(1, 'Remoção de Tatuagem'),
@@ -116,7 +116,7 @@ VALUES
   (8, 8, 1, 2, 5, 2, 'Sim', '5 vezes por semana', NOW()),
   (9, 9, 3, 1, 4, 1, 'Não', '2 vezes por semana', NOW()),
   (10, 10, 1, 3, 3, 2, 'Sim', 'Todos os dias', NOW());
-    
+
 INSERT INTO medical_histories (medical_history_id, customer_id, disease_id, medical_treatment, aesthetic_treatment, aesthetic_treatment_ongoing, cosmetics_in_use, medication_in_use, allergies, pacemaker_prosthesis, oncological, cardiac, epilepsy, health_problems, intestines, obesity, surgery, family_history, keloid_propensity, stretch_marks_propensity, created_at)
 VALUES
   (1, 1, 1, 'Sim', 'Não', 'NSA', 'Não', 'Não', 'Nenhuma', 'Não', 'Não', 'Sim', true, 0, true, false, 'Não', 'Nenhuma', false, false, NOW()),
@@ -158,7 +158,7 @@ VALUES
   (8, 8, '2023-08-02 12:30:00', NOW()),
   (9, 9, '2023-08-03 08:00:00', NOW()),
   (10, 10, '2023-08-04 17:00:00', NOW());
-    
+
 INSERT INTO procedures (procedure_id, appointment_id, procedure_name_id, corporal_area_id, actual_session, total_sessions, signature, created_at)
 VALUES
   (1, 1, 1, 5, 1, 5, 'assinatura1.jpg', NOW()),

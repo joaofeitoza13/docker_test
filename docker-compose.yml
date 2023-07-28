@@ -2,7 +2,7 @@ version: '3.9'
 
 services:
   tv_database:
-    container_name: 
+    container_name:
       tv_database
     image:
       postgres:13-alpine
@@ -23,7 +23,7 @@ services:
       dockerfile: ./Dockerfile
     ports:
       - "8080:8000"
-    volumes: 
+    volumes:
       - ./:/tv_cms/
     env_file:
       - ./dotenv_files/.env.dev

@@ -20,4 +20,11 @@ sleep 2
 docker exec -i tv_database psql -U tv_user -d tv_database < scripts/db/tables.sql
 docker exec -i tv_database psql -U tv_user -d tv_database < scripts/db/inserts.sql
 
+# Executar os comandos para inicializar o sistema
+docker exec -it tv_backend /bin/bash -c "cd /home/duser/tv_cms && git init"
+docker exec -it tv_backend /bin/bash -c "cd /home/duser/tv_cms && make update"
+docker exec -it tv_backend /bin/bash -c "cd /home/duser/tv_cms && make runserver"
+
+
+
 echo "Initialization process concluded."

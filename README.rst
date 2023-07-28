@@ -27,7 +27,7 @@ Caso queira adicionar as seeds:
 Com isso, os usuários e tabelas necessários foram criados, assim como algumas
 seeds foram inseridas para o ambiente de desenvolvimento.
 
-Esses passos podem ser replicados para criação de um banco de produção, mas não 
+Esses passos podem ser replicados para criação de um banco de produção, mas não
 devem ser inseridas seeds.
 
 Ocorreram alguns bugs ao tentar automatizar esse processo, mas será concluído
@@ -44,3 +44,11 @@ Crie uma pasta tv_backend;
   mkdir tv_backend
 
 cd tv_backend && mv tv_backend core && cd ..
+
+git init
+
+git config --global --add safe.directory /tv_cms
+
+pip install -U setuptools
+
+chmod -R 777 .git/hooks
