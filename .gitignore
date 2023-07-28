@@ -30,7 +30,7 @@ db.sqlite3
 media
 
 # Environments
-/dotenv_files/.env.dev
+# /dotenv_files/.env.dev
 .venv
 /.env
 /local
