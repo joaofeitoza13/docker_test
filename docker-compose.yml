@@ -1,0 +1,33 @@
+version: '3.9'
+
+services:
+  tv_database:
+    container_name: 
+      tv_database
+    image:
+      postgres:13-alpine
+    restart:
+      always
+    volumes:
+      - ./scripts/db:/opt/db/
+    env_file:
+      - ./dotenv_files/.env.docker
+    ports:
+      - "5433:5432"
+
+  tv_backend:
+    container_name:
+      tv_backend
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - "8080:8000"
+    volumes: 
+      - ./:/tv_cms/
+    env_file:
+      - ./dotenv_files/.env.dev
+    depends_on:
+      - tv_database
+    tty:
+      true
