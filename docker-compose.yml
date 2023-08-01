@@ -5,7 +5,7 @@ services:
     container_name:
       tv_database
     image:
-      postgres:13-alpine
+      postgres:alpine3.18
     restart:
       always
     volumes:
@@ -20,16 +20,13 @@ services:
       tv_backend
     build:
       context: .
-      dockerfile: ./Dockerfile
-    ports:
-      - "8000:8000"
-    volumes:
-      - ./:/tv_cms/
+      dockerfile: ./Dockerfile.backend
     env_file:
       - ./dotenv_files/.env.dev
     depends_on:
       - tv_database
     links:
       - tv_database:tv_database
-    tty:
-      true
+    ports:
+      - "8000:8000"
+    tty: true

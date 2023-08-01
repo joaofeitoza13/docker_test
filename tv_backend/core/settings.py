@@ -12,13 +12,7 @@ DEBUG = bool(int(os.getenv('DEBUG', 0)))
 
 ALLOWED_HOSTS = [h.strip() for h in os.getenv('ALLOWED_HOSTS', '').split(',') if h.strip()]
 
-print('secret_key', SECRET_KEY)
-print(DEBUG)
-print(ALLOWED_HOSTS)
-print(os.getenv('POSTGRES_HOST'))
-
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',

@@ -1,9 +1,11 @@
 #.PHONY explicity instructs makefile that these commands don't use files;
 
+### PROJECT INIT
 .PHONY: init
 init:
 	./scripts/init_project.sh
 
+### POETRY
 .PHONY: install
 install:
 	poetry install
@@ -16,6 +18,10 @@ install-pre-commit:
 lint:
 	poetry run pre-commit run --all-files
 
+.PHONY: update
+update: install migrate install-pre-commit lint;
+
+### DJANGO ###
 .PHONY: migrate
 migrate:
 	poetry run python -m tv_backend.manage migrate
@@ -32,9 +38,23 @@ runserver:
 createsuperuser:
 	poetry run python -m tv_backend.manage createsuperuser
 
+### DOCKER ###
 .PHONY: docker
 docker:
 	docker-compose up --build
 
-.PHONY: update
-update: install migrate install-pre-commit lint;
+.PHONY: backend
+backend:
+	docker container exec -it tv_backend bash
+
+.PHONY: root-backend
+root-backend:
+	docker container exec -it -u root tv_backend bash
+
+.PHONY:database
+database:
+	docker container exec -it tv_database bash
+
+.PHONY: root-database
+root-database:
+	docker container exec -it -u root tv_database bash

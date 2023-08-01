@@ -4,12 +4,14 @@ LABEL mantainer="joaofeitoza.13@gmail.com"
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-RUN apt-get update && apt-get install git make musl-dev python3-dev -y && \
+RUN \
+  apt-get update && \
+  apt-get install git make musl-dev python3-dev sudo -y && \
   useradd -m duser && \
   echo "duser:duser" | chpasswd && \
   adduser duser sudo
 
-COPY ./tvcms /home/duser/tv_cms
+COPY ./tv_cms /home/duser/tv_cms
 
 WORKDIR /home/duser/tv_cms
 
@@ -23,7 +25,7 @@ RUN \
   chown -R duser:root /home/duser && \
   chown -R duser:root /data/web/static && \
   chown -R duser:root /data/web/media && \
-  chmod -R 777 /home && \
+  chmod -R 777 /home/duser/tv_cms && \
   chmod -R 755 /data/web/static && \
   chmod -R 755 /data/web/media
 
