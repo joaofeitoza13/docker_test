@@ -12,7 +12,7 @@ def main():
 
     load_dotenv(os.path.join(Path(__file__).resolve().parent.parent, 'dotenv_files/.env.dev'))
 
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'tv_backend.core.settings')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'core.settings')
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:

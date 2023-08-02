@@ -1,0 +1,19 @@
+# FROM node:18.17.0-buster-slim
+# LABEL mantainer="joaofeitoza.13@gmail.com"
+
+# RUN apt-get update && apt-get install git make musl-dev -y && \
+#   useradd -m duser && \
+#   echo "duser:duser" | chpasswd && \
+#   adduser duser sudo
+
+# COPY ./tv_cms/tv_frontend /tv_cms/tv_frontend
+
+# WORKDIR /tv_cms/tv_frontend
+
+# EXPOSE 3000
+
+# RUN npm i -g vite create-vite
+
+# ENV PATH="/scripts:$PATH"
+
+# USER duser

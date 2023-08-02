@@ -11,9 +11,9 @@ RUN \
   echo "duser:duser" | chpasswd && \
   adduser duser sudo
 
-COPY ./tv_cms /home/duser/tv_cms
+COPY ../tv_backend /tv_backend
 
-WORKDIR /home/duser/tv_cms
+WORKDIR /tv_backend
 
 EXPOSE 8000
 
@@ -25,7 +25,8 @@ RUN \
   chown -R duser:root /home/duser && \
   chown -R duser:root /data/web/static && \
   chown -R duser:root /data/web/media && \
-  chmod -R 777 /home/duser/tv_cms && \
+  # chmod -R 777 /home/duser/tv_cms && \
+  chmod -R 755 /tv_backend && \
   chmod -R 755 /data/web/static && \
   chmod -R 755 /data/web/media
 
